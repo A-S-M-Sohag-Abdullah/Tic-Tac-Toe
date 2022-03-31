@@ -1,0 +1,78 @@
+package model;
+
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import model.Login;
+
+
+
+public class Home extends JFrame {
+		public JFrame mainframe ;
+		public JPanel homepanel = new JPanel();
+		public JLabel Image;
+		public ImageIcon img = new ImageIcon(getClass().getResource("banner.gif"));
+		public ImageIcon frameIcon = new ImageIcon(getClass().getResource("banner.gif"));
+		public JButton playbtn,exitbtn;
+		public CardLayout cl = new CardLayout();
+		public JPanel panelcont = new JPanel();
+		
+	public Home()  {
+		mainframe = new JFrame();
+		Image = new JLabel(img);
+		playbtn = new JButton("Play");
+		exitbtn = new JButton("Quit");
+		
+		this.setLayout( null );
+		this.setSize(400, 400);
+		this.setLocationRelativeTo(null);
+		this.setVisible(true);
+		this.setResizable(false);
+		this.setTitle("Tic Tac Toe");
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		panelcont.setLayout(cl);
+		panelcont.setSize(400,400);
+		panelcont.add(homepanel,"1");
+		cl.show(panelcont, "1");
+		
+		this.homepanel.setSize(400,400);
+		this.homepanel.setLayout(null);
+		this.add(panelcont);
+		
+		homepanel.setBackground(Color.WHITE);
+		Image.setBounds(90, 30, 200, 220);
+		playbtn.setBounds(140, 250, 100, 30);
+		playbtn.setBackground(Color.GREEN);
+		exitbtn.setBounds(140, 290, 100, 30);
+		exitbtn.setBackground(Color.RED);
+		exitbtn.setForeground(Color.WHITE);
+		
+		playbtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cl.show(panelcont, "2");
+			}
+		});
+		exitbtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		
+		homepanel.add(Image);
+		homepanel.add(playbtn);
+		homepanel.add(exitbtn);
+		validate();
+		
+	}
+	
+}

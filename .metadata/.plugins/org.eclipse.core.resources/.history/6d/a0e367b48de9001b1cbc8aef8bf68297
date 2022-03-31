@@ -1,0 +1,10 @@
+package model;
+
+public class Play extends Login{
+
+	
+	public Play() {
+		
+	}
+
+}

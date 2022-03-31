@@ -1,0 +1,17 @@
+package model;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class Play extends Login{
+
+	public JPanel playpanel = new JPanel();
+	public ImageIcon gridimg =  new ImageIcon(getClass().getResource("grid.png"));
+	public JLabel gridholder;
+	public Play() {
+		super();
+		gridholder = new JLabel(gridimg);
+	}
+
+}

@@ -1,0 +1,105 @@
+package model;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
+public class Login extends Home{
+	public JPanel loginpanel = new JPanel() ;
+	public JLabel name,rbtnimg1,rbtnimg2,namenotselected;
+	public JTextField namebox;
+	public JRadioButton choice1,choice2;
+	public JButton gobtn,backtohome;
+	public ButtonGroup bg = new ButtonGroup();
+	public ImageIcon crossimg = new ImageIcon(getClass().getResource("cross.png"));
+	public ImageIcon circleimg = new ImageIcon(getClass().getResource("circle.png"));
+	public String userchoice;
+	
+	public Login() {
+		super();
+		//variable initialization;
+		name = new JLabel("Name : ");
+		namenotselected = new JLabel("Set player name first");
+		rbtnimg1 = new JLabel(crossimg);
+		rbtnimg2 = new JLabel(circleimg);
+		namebox = new JTextField();
+		gobtn = new JButton("GO !!");
+		backtohome = new JButton("Back");
+		choice1 = new JRadioButton();
+		choice2 = new JRadioButton();
+		bg.add(choice1);
+		bg.add(choice2);
+		
+		//login panel settings
+		loginpanel.setSize(400,400);
+		loginpanel.setLayout(null);
+		loginpanel.setBackground(Color.WHITE);
+		backtohome.setBounds(10, 10, 70, 20);
+		backtohome.setBackground(Color.RED);
+		
+		namenotselected.setBounds(50, 50, 200, 30);
+		namenotselected.setForeground(Color.RED);
+		name.setBounds(100, 110, 50, 15);
+		namebox.setBounds(150, 108, 120, 20);
+		namebox.setBackground(Color.lightGray);
+		namebox.setForeground(Color.YELLOW);
+		choice1.setBounds(135, 160, 20, 20);
+		rbtnimg1.setBounds(155, 160, 20, 20);
+		choice1.setSelected(true);
+		choice2.setBounds(180, 160, 20, 20);
+		rbtnimg2.setBounds(200, 155, 30, 30);		
+		gobtn.setBounds(135, 250, 100, 30);
+		gobtn.setBackground(Color.GREEN);
+		
+		
+		panelcont.add(loginpanel,"2");
+		
+		//login panel contents adding
+		loginpanel.add(backtohome);
+		loginpanel.add(name);
+		loginpanel.add(namebox);
+		loginpanel.add(choice1);
+		loginpanel.add(choice2);
+		loginpanel.add(rbtnimg1);
+		loginpanel.add(rbtnimg2);
+		loginpanel.add(gobtn);
+		
+		gobtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				if(choice1.isSelected())
+					userchoice = "cross";
+				else if(choice2.isSelected())
+					userchoice = "circle";
+				String username = namebox.getText();
+				System.out.println(username);
+				if(!(username.equals("")))
+				{
+					cl.show(panelcont, "3");
+				}
+				else {
+					loginpanel.add(namenotselected);
+				}
+			}
+		});
+		
+		backtohome.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				cl.show(panelcont, "1");
+			}
+		});
+	}
+	
+}

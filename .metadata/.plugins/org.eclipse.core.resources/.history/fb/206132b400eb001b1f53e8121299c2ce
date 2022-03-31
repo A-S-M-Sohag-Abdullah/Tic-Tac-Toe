@@ -1,0 +1,123 @@
+package model;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class Play extends Login{
+
+	public JPanel playpanel = new JPanel();
+	public ImageIcon gridimg =  new ImageIcon(getClass().getResource("grid.png"));
+	public ImageIcon rowLineImg =  new ImageIcon(getClass().getResource("verticalLine.png"));
+	public ImageIcon columLineImg = new ImageIcon(getClass().getResource("horizontalLine.png"));
+	public ImageIcon cornerLineImg1 = new ImageIcon(getClass().getResource("corner-line.png"));
+	public ImageIcon cornerLineImg2 = new ImageIcon(getClass().getResource("corner-line2.png"));
+	public JLabel gridholder, rL1,rL2,rL3,cL1,cL2,cL3,cronerL1,cornerL2;
+	public JButton b1, b2, b3, b4, b5, b6, b7, b8, b9;
+	
+	public Play() {
+		super();
+		gridholder = new JLabel(gridimg);
+		rL1 = new JLabel(rowLineImg);
+		rL2 = new JLabel(rowLineImg);
+		rL3 = new JLabel(rowLineImg);
+		cL1 = new JLabel(columLineImg);
+		cL2 = new JLabel(columLineImg);
+		cL3 = new JLabel(columLineImg);
+		cronerL1= new JLabel(cornerLineImg1);
+		cornerL2= new JLabel(cornerLineImg2);
+		b1 = new JButton("-");
+		b2 = new JButton("-");
+		b3 = new JButton("-");
+		b4 = new JButton("-");
+		b5 = new JButton("-");
+		b6 = new JButton("-");
+		b7 = new JButton("-");
+		b8 = new JButton("-");
+		b9 = new JButton("-");
+		
+		panelcont.add(playpanel,"3");
+		playpanel.setSize(400,400);
+		playpanel.setLayout(null);
+		playpanel.setBackground(Color.WHITE);
+		
+		gridholder.setBounds(90, 60, 200, 220);
+		b1.setBounds(100, 75, 40, 30);
+		b2.setBounds(170, 75, 40, 30);
+		b3.setBounds(240, 75, 40, 30);
+		b4.setBounds(100, 140, 40, 30);
+		b5.setBounds(170, 140, 40, 30);
+		b6.setBounds(240, 140, 40, 30);
+		b7.setBounds(100, 210, 40, 30);
+		b8.setBounds(170, 210, 40, 30);
+		b9.setBounds(240, 210, 40, 30);
+		rL1.setBounds(90, 85, 200, 4);
+		rL2.setBounds(90, 150, 200, 4);
+		rL3.setBounds(90, 220, 200, 4);
+		
+		playpanel.add(gridholder);
+		playpanel.add(b1);
+		playpanel.add(b2);
+		playpanel.add(b3);
+		playpanel.add(b4);
+		playpanel.add(b5);
+		playpanel.add(b6);
+		playpanel.add(b7);
+		playpanel.add(b8);
+		playpanel.add(b9);
+		playpanel.add(rL1);
+		playpanel.add(rL2);
+		playpanel.add(rL3);
+		
+		playpanel.setComponentZOrder(rL1, 1);
+		playpanel.setComponentZOrder(rL2, 1);
+		playpanel.setComponentZOrder(rL3, 1);
+		
+		rL1.setVisible(false);
+		
+		b1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				playpanel.remove(b1);
+				b1.setEnabled(false);
+				playpanel.add(b1);
+				
+				
+			}
+		});
+		
+		b2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				playpanel.remove(b2);
+				b2.setEnabled(false);
+				playpanel.add(b2);
+				
+				
+			}
+		});
+		
+		b3.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				playpanel.remove(b3);
+				b3.setEnabled(false);
+				playpanel.add(b3);
+				rL1.setVisible(true);
+				
+			}
+		});
+	}
+
+}

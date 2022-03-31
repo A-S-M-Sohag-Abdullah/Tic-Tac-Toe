@@ -1,0 +1,43 @@
+package model;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+
+public class Login extends JFrame {
+		public JFrame login ;
+		public JLabel pn , Image;
+		public JTextField name;
+		public ImageIcon img = new ImageIcon(getClass().getResource("test.png"));
+		public JButton btn;
+	public Login()  {
+		login = new JFrame();
+		pn = new JLabel("Player name : ");
+		name = new JTextField(10);
+		Image = new JLabel(img);
+		btn = new JButton("test btn");
+		
+		btn.setEnabled(false);
+		this.setLayout(null);
+		this.setSize(400, 400);
+		this.setLocationRelativeTo(null);
+		this.setVisible(true);
+		this.setTitle("Tic Tac Toe");
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		pn.setBounds(10, 10, 90, 15);
+		name.setBounds(90, 10, 200, 20);
+		Image.setBounds(80, 30, 100, 200);
+		btn.setBounds(80, 80, 50, 50);
+		add(pn);
+		add(name);
+		add(Image);
+		add(btn);
+		validate();
+		
+	}
+	
+}
